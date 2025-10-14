@@ -1,0 +1,42 @@
+# Netlify Configuration for GEO Landing Page
+
+[build]
+  command = "npm run build"
+  publish = "dist"
+
+# Automatic image optimization
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+
+# Headers for security and performance
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "geolocation=(), microphone=(), camera=()"
+
+# Cache static assets
+[[headers]]
+  for = "/assets/*"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Cache fonts
+[[headers]]
+  for = "/*.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+# Form settings
+[forms]
+  # Enable spam detection
+  spam_detection = true
+
+# Redirect rules (if needed)
+# [[redirects]]
+#   from = "/old-page"
+#   to = "/new-page"
+#   status = 301
