@@ -1,19 +1,1188 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import ContextAlert from '../components/ContextAlert.astro';
-import Markdown from '../components/Markdown.astro';
-
-const explainer = `
-
-GEO - Przyszłość widoczności online
-Zoptymalizuj swoją firmę pod ChatGPT, Claude i Google AI. Bo Twoi klienci już nie googlują - pytają AI.
-
-`;
+import LandingLayout from '../layouts/LandingLayout.astro';
 ---
 
-<Layout title="Welcome to Vanity Projects.">
-    <ContextAlert class="mb-8" />
-    <h1 class="mb-10">Vanity Projects</h1>
-    <Markdown content={explainer} class="mb-10 text-lg" />
-    
-</Layout>
+<LandingLayout title="GEO - Generative Engine Optimization | Vanity Projects">
+	<!-- Hero Section -->
+	<section class="relative min-h-[90vh] flex items-center justify-center overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+		<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+		
+		<div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
+			<div class="inline-block mb-6 px-4 py-2 bg-purple-500/20 border border-purple-400/30 rounded-full">
+				<span class="text-purple-300 text-sm font-medium">Pierwsza agencja GEO w Polsce</span>
+			</div>
+			
+			<h1 class="text-5xl md:text-7xl font-bold text-white mb-6 leading-tight">
+				Zbuduj przewagę nad konkurencją<br />
+				w <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-400">wyszukiwaniu AI</span>
+			</h1>
+			
+			<p class="text-xl md:text-2xl text-gray-300 mb-4 max-w-4xl mx-auto">
+				Zanim oni w ogóle zrozumieją co się dzieje
+			</p>
+			
+			<p class="text-lg text-gray-400 mb-12 max-w-3xl mx-auto">
+				Optymalizacja pod ChatGPT, Claude i Google AI zamiast tradycyjnego Google
+			</p>
+			
+			<div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+				<a href="#contact" class="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-semibold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg">
+					Zarezerwuj bezpłatną konsultację
+				</a>
+				<a href="#problem" class="px-8 py-4 bg-white/10 backdrop-blur-sm text-white font-semibold rounded-lg hover:bg-white/20 transition-all border border-white/20">
+					Dowiedz się więcej
+				</a>
+			</div>
+			
+			<div class="mt-16 flex flex-wrap justify-center gap-8 text-gray-400 text-sm">
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+					</svg>
+					<span>800% wzrost wyszukiwań AI rok do roku</span>
+				</div>
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+					</svg>
+					<span>40% wzrost widoczności z GEO</span>
+				</div>
+				<div class="flex items-center gap-2">
+					<svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+						<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+					</svg>
+					<span>Tylko 10 miejsc dostępnych</span>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Problem Section -->
+	<section id="problem" class="py-24 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+					Nowa rzeczywistość – AI jako doradca zakupowy
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Rewolucja już się dzieje – AI przejmuje decyzje zakupowe
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-12 items-center mb-16">
+				<div>
+					<div class="space-y-6">
+						<div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100">
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+									<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+									</svg>
+								</div>
+								<div>
+									<p class="text-gray-700 italic">"Gdzie kupić samochód hybrydowy w Gdańsku?"</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100">
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+									<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+									</svg>
+								</div>
+								<div>
+									<p class="text-gray-700 italic">"Znajdź najlepszy salon fryzjerski dla mężczyzn w Warszawie"</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="bg-gradient-to-br from-purple-50 to-pink-50 p-6 rounded-xl border border-purple-100">
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-12 h-12 bg-purple-600 rounded-lg flex items-center justify-center">
+									<svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+										<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 10h.01M12 10h.01M16 10h.01M9 16H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-5l-5 5v-5z"/>
+									</svg>
+								</div>
+								<div>
+									<p class="text-gray-700 italic">"Który dealer BMW ma najlepsze opinie?"</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div>
+					<div class="bg-gradient-to-br from-gray-900 to-gray-800 p-8 rounded-2xl text-white">
+						<h3 class="text-2xl font-bold mb-6">Różnica jest kluczowa:</h3>
+						
+						<div class="space-y-6">
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-8 h-8 bg-red-500/20 rounded-lg flex items-center justify-center">
+									<span class="text-red-400 font-bold">G</span>
+								</div>
+								<div>
+									<p class="font-semibold mb-1">Google pokazuje</p>
+									<p class="text-gray-400">10 linków do wyboru</p>
+								</div>
+							</div>
+							
+							<div class="h-px bg-gray-700"></div>
+							
+							<div class="flex items-start gap-4">
+								<div class="flex-shrink-0 w-8 h-8 bg-purple-500/20 rounded-lg flex items-center justify-center">
+									<span class="text-purple-400 font-bold">AI</span>
+								</div>
+								<div>
+									<p class="font-semibold mb-1">AI podaje</p>
+									<p class="text-gray-400">2-3 konkretne rekomendacje</p>
+								</div>
+							</div>
+						</div>
+						
+						<div class="mt-8 p-4 bg-red-500/10 border border-red-500/20 rounded-lg">
+							<p class="text-red-300 font-semibold">
+								Jeśli Twojej firmy nie ma w tych odpowiedziach – nie istniejesz w momencie decyzji zakupowej.
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="text-center p-6">
+					<div class="text-4xl font-bold text-purple-600 mb-2">25%</div>
+					<p class="text-gray-600">spadek tradycyjnego wyszukiwania do 2026 (Gartner)</p>
+				</div>
+				<div class="text-center p-6">
+					<div class="text-4xl font-bold text-purple-600 mb-2">40%</div>
+					<p class="text-gray-600">więcej widoczności z optymalizacją GEO (Princeton University)</p>
+				</div>
+				<div class="text-center p-6">
+					<div class="text-4xl font-bold text-purple-600 mb-2">100%</div>
+					<p class="text-gray-600">zmiana w podejmowaniu decyzji zakupowych</p>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Solution Section -->
+	<section id="solution" class="py-24 bg-gradient-to-br from-gray-50 to-purple-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+					Czym jest GEO?
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Generative Engine Optimization to pozycjonowanie ofert handlowych w erze wyszukiwania AI
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-12 mb-16">
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-16 h-16 bg-red-100 rounded-xl flex items-center justify-center">
+							<span class="text-3xl font-bold text-red-600">S</span>
+						</div>
+						<div>
+							<h3 class="text-2xl font-bold text-gray-900">SEO</h3>
+							<p class="text-gray-600">Tradycyjne podejście</p>
+						</div>
+					</div>
+					<p class="text-gray-700 mb-4">Optymalizacja pod algorytmy Google</p>
+					<ul class="space-y-2 text-gray-600">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>Ranking w wynikach wyszukiwania (SERP)</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>Słowa kluczowe i backlinki</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-gray-400 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>Użytkownik wybiera z 10 linków</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="bg-gradient-to-br from-purple-600 to-pink-600 p-8 rounded-2xl shadow-lg text-white">
+					<div class="flex items-center gap-4 mb-6">
+						<div class="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-xl flex items-center justify-center">
+							<span class="text-3xl font-bold">G</span>
+						</div>
+						<div>
+							<h3 class="text-2xl font-bold">GEO</h3>
+							<p class="text-purple-100">Nowe podejście</p>
+						</div>
+					</div>
+					<p class="text-white mb-4 font-medium">Optymalizacja pod modele językowe AI</p>
+					<ul class="space-y-2">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-200 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>Rekomendacje w odpowiedziach AI</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-200 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>Optymalizacja semantyczna i wektorowa</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-200 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>AI podaje 2-3 konkretne sugestie</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="bg-white p-8 rounded-2xl shadow-lg border border-purple-100">
+				<h3 class="text-2xl font-bold text-gray-900 mb-6 text-center">Nasza metodologia GEO łączy:</h3>
+				<div class="grid md:grid-cols-4 gap-6">
+					<div class="text-center">
+						<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+							<svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+							</svg>
+						</div>
+						<p class="font-semibold text-gray-900 mb-2">Wyszukiwania semantyczne</p>
+						<p class="text-sm text-gray-600">Optymalizacja znaczenia, nie słów kluczowych</p>
+					</div>
+					
+					<div class="text-center">
+						<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+							<svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+							</svg>
+						</div>
+						<p class="font-semibold text-gray-900 mb-2">Wektoryzacja języka</p>
+						<p class="text-sm text-gray-600">Sposób w jaki AI rozumie treść</p>
+					</div>
+					
+					<div class="text-center">
+						<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+							<svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+							</svg>
+						</div>
+						<p class="font-semibold text-gray-900 mb-2">Wzorce generacji AI</p>
+						<p class="text-sm text-gray-600">Jak AI tworzy odpowiedzi</p>
+					</div>
+					
+					<div class="text-center">
+						<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mx-auto mb-4">
+							<svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z"/>
+							</svg>
+						</div>
+						<p class="font-semibold text-gray-900 mb-2">Multiplatformowość</p>
+						<p class="text-sm text-gray-600">ChatGPT, Claude, Gemini, Perplexity</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Advantage Section -->
+	<section id="advantage" class="py-24 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+					Przewaga konkurencyjna
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Bycie pionierem w GEO daje unikalne korzyści
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8 mb-16">
+				<div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-100">
+					<div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Efekt sieciowy uczenia AI</h3>
+					<ul class="space-y-3 text-gray-700">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Modele AI uczą się wzorców i wzmacniają udane rekomendacje</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Pierwszy w branży = referencyjna firma dla AI</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Konkurenci muszą przebić Twoją ugruntowaną pozycję</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-100">
+					<div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Mierzalny wpływ na biznes</h3>
+					<ul class="space-y-3 text-gray-700">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span><strong>40%</strong> wzrost widoczności w AI (Princeton University)</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span><strong>5x</strong> przewaga konkurencyjna dla pionierów (McKinsey)</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span><strong>67%</strong> użytkowników wybiera pierwszą rekomendację AI (MIT)</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="bg-gradient-to-br from-purple-50 to-pink-50 p-8 rounded-2xl border border-purple-100">
+					<div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Przewaga w czasie</h3>
+					<ul class="space-y-3 text-gray-700">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span><strong>Miesiąc 1-2:</strong> Pierwsze cytowania AI w niszowych zapytaniach</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span><strong>Miesiąc 3-6:</strong> Dominująca pozycja w branżowych zapytaniach</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span><strong>Miesiąc 6+:</strong> AI nauczyło się, że jesteś domyślnym wyborem</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="bg-gradient-to-r from-purple-600 to-pink-600 p-8 rounded-2xl text-white text-center">
+				<p class="text-xl font-semibold">
+					Konkurenci startujący za 6-12 miesięcy będą potrzebować <span class="text-2xl font-bold">trzykrotnie więcej</span> czasu i budżetu na osiągnięcie podobnych rezultatów.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Why Now Section -->
+	<section id="why-now" class="py-24 bg-gradient-to-br from-gray-50 to-purple-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+					Dlaczego teraz?
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Idealny moment na wdrożenie GEO – technologia dojrzała, rynek gotowy, konkurencja śpi
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8">
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+					<div class="w-16 h-16 bg-green-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-green-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
+						</svg>
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">Gotowość rynkowa</h3>
+					<ul class="space-y-3 text-gray-700">
+						<li class="flex items-start gap-2">
+							<span class="font-semibold text-green-600">800%</span>
+							<span>wzrost wyszukiwań AI rok do roku (Semrush 2024)</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<span class="font-semibold text-green-600">73%</span>
+							<span>firm planuje integrację AI do końca 2025 r.</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<span class="font-semibold text-green-600">49%</span>
+							<span>użytkowników preferuje odpowiedzi AI zamiast tradycyjnych wyników</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+					<div class="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"/>
+						</svg>
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">Dojrzałość technologiczna</h3>
+					<ul class="space-y-3 text-gray-700">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>AI jest stabilne i skalowalne – setki milionów użytkowników dziennie</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Problem halucynacji rozwiązany przez RAG</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-blue-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Wyszukiwanie AI dostępne wszędzie przez API</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-gray-100">
+					<div class="w-16 h-16 bg-purple-100 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-purple-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+						</svg>
+					</div>
+					<h3 class="text-2xl font-bold text-gray-900 mb-4">Luka konkurencyjna</h3>
+					<ul class="space-y-3 text-gray-700">
+						<li class="flex items-start gap-2">
+							<span class="font-semibold text-purple-600">95%</span>
+							<span>agencji SEO nie oferuje GEO – brak kompetencji</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Brak standardowych rozwiązań = wielkie możliwości</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Strategia błękitnego oceanu dla pionierów</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Process Section -->
+	<section id="process" class="py-24 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+					Jak działamy
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Sprawdzony 4-etapowy proces wdrożenia GEO
+				</p>
+			</div>
+
+			<div class="space-y-8">
+				<!-- Step 1 -->
+				<div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl border-l-4 border-purple-600">
+					<div class="flex items-start gap-6">
+						<div class="flex-shrink-0">
+							<div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center">
+								<span class="text-2xl font-bold text-white">1</span>
+							</div>
+						</div>
+						<div class="flex-1">
+							<div class="flex items-center gap-4 mb-4">
+								<h3 class="text-2xl font-bold text-gray-900">Audyt widoczności w AI</h3>
+								<span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">Tydzień 1</span>
+							</div>
+							<p class="text-gray-700 mb-4">Kompleksowa ocena obecnej pozycji Twojej firmy w odpowiedziach AI</p>
+							<ul class="grid md:grid-cols-2 gap-3">
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>20 zapytań związanych z marką na 4 platformach AI</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Analiza krajobrazu konkurencyjnego (top 10)</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Obecny wynik widoczności AI + analiza luk</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Audyt techniczny treści (gotowość na AI)</span>
+								</li>
+							</ul>
+							<div class="mt-4 p-4 bg-white rounded-lg border border-purple-200">
+								<p class="font-semibold text-purple-900">📊 Rezultat: Podsumowanie zarządcze z praktycznymi spostrzeżeniami i prognozami ROI</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Step 2 -->
+				<div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-2xl border-l-4 border-pink-600">
+					<div class="flex items-start gap-6">
+						<div class="flex-shrink-0">
+							<div class="w-16 h-16 bg-pink-600 rounded-xl flex items-center justify-center">
+								<span class="text-2xl font-bold text-white">2</span>
+							</div>
+						</div>
+						<div class="flex-1">
+							<div class="flex items-center gap-4 mb-4">
+								<h3 class="text-2xl font-bold text-gray-900">Architektura strategiczna</h3>
+								<span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-semibold">Tydzień 2</span>
+							</div>
+							<p class="text-gray-700 mb-4">Opracowanie dedykowanej strategii GEO dla Twojej firmy</p>
+							<ul class="grid md:grid-cols-2 gap-3">
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-pink-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Mapowanie treści semantycznych</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-pink-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Strategia optymalizacji wielomodelowej</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-pink-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Mapa drogowa implementacji technicznej</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-pink-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Struktura KPI i plan pomiarów</span>
+								</li>
+							</ul>
+							<div class="mt-4 p-4 bg-white rounded-lg border border-pink-200">
+								<p class="font-semibold text-pink-900">📋 Rezultat: Szczegółowy dokument strategii GEO + harmonogram wdrożenia na 90 dni</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Step 3 -->
+				<div class="bg-gradient-to-br from-purple-50 to-white p-8 rounded-2xl border-l-4 border-purple-600">
+					<div class="flex items-start gap-6">
+						<div class="flex-shrink-0">
+							<div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center">
+								<span class="text-2xl font-bold text-white">3</span>
+							</div>
+						</div>
+						<div class="flex-1">
+							<div class="flex items-center gap-4 mb-4">
+								<h3 class="text-2xl font-bold text-gray-900">Implementacja techniczna</h3>
+								<span class="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">Tydzień 3-4</span>
+							</div>
+							<p class="text-gray-700 mb-4">Praktyczna optymalizacja Twojej obecności cyfrowej</p>
+							<ul class="grid md:grid-cols-2 gap-3">
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Restrukturyzacja treści dla zrozumienia AI</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Optymalizacja znaczników schema i metadanych</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Architektura informacji przyjazna RAG</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Wdrożenie treści na wielu platformach</span>
+								</li>
+							</ul>
+							<div class="mt-4 p-4 bg-white rounded-lg border border-purple-200">
+								<p class="font-semibold text-purple-900">🚀 Rezultat: W pełni zoptymalizowana obecność cyfrowa gotowa na odkrycie przez AI</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Step 4 -->
+				<div class="bg-gradient-to-br from-pink-50 to-white p-8 rounded-2xl border-l-4 border-pink-600">
+					<div class="flex items-start gap-6">
+						<div class="flex-shrink-0">
+							<div class="w-16 h-16 bg-pink-600 rounded-xl flex items-center justify-center">
+								<span class="text-2xl font-bold text-white">4</span>
+							</div>
+						</div>
+						<div class="flex-1">
+							<div class="flex items-center gap-4 mb-4">
+								<h3 class="text-2xl font-bold text-gray-900">Ciągła inteligencja</h3>
+								<span class="px-3 py-1 bg-pink-100 text-pink-700 rounded-full text-sm font-semibold">Na bieżąco</span>
+							</div>
+							<p class="text-gray-700 mb-4">Monitorowanie wydajności i ciągła optymalizacja</p>
+							<ul class="grid md:grid-cols-2 gap-3">
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-pink-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Śledzenie cytowań AI w czasie rzeczywistym</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-pink-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Analizy aktywności konkurencyjnej</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-pink-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Miesięczne udoskonalenia strategii</span>
+								</li>
+								<li class="flex items-start gap-2">
+									<svg class="w-5 h-5 text-pink-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+										<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+									</svg>
+									<span>Identyfikacja nowych wzorców zapytań</span>
+								</li>
+							</ul>
+							<div class="mt-4 p-4 bg-white rounded-lg border border-pink-200">
+								<p class="font-semibold text-pink-900">📈 Rezultat: Miesięczne raporty zarządcze + kwartalne aktualizacje strategii</p>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Team Section -->
+	<section id="team" class="py-24 bg-gradient-to-br from-gray-50 to-purple-50">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+					Dlaczego my?
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Pierwsza i jedyna agencja GEO w Polsce z unikalnym połączeniem ekspertyz
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8 mb-12">
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-purple-100">
+					<div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Unikalne pozycjonowanie</h3>
+					<ul class="space-y-3 text-gray-700">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Pierwsza agencja w Polsce specjalizująca się wyłącznie w GEO</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Własne narzędzia: Niestandardowa platforma oceny AI</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Bezpośredni dostęp do API ChatGPT, Claude i Gemini</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-purple-100">
+					<div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Transparentne podejście</h3>
+					<ul class="space-y-3 text-gray-700">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Bez fałszywych studiów przypadków – budujemy historię sukcesu razem</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Otwarta metodologia – bazujemy na badaniach naukowych</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Pilot bez ryzyka – możliwość rozwiązania umowy</span>
+						</li>
+					</ul>
+				</div>
+
+				<div class="bg-white p-8 rounded-2xl shadow-lg border border-purple-100">
+					<div class="w-16 h-16 bg-purple-600 rounded-xl flex items-center justify-center mb-6">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-gray-900 mb-4">Ekspertyza techniczna</h3>
+					<ul class="space-y-3 text-gray-700">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Lata doświadczenia w przetwarzaniu języka naturalnego</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Kilkadziesiąt wdrożeń systemów AI w dużych organizacjach</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-purple-600 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Uczestnictwo w programach deweloperskich Anthropic i Google</span>
+						</li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- Pricing Section -->
+	<section id="pricing" class="py-24 bg-white">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-16">
+				<h2 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+					Struktura inwestycji
+				</h2>
+				<p class="text-xl text-gray-600 max-w-3xl mx-auto">
+					Elastyczne pakiety dopasowane do skali Twojego biznesu
+				</p>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8">
+				<!-- Pilot -->
+				<div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all">
+					<div class="text-center mb-6">
+						<h3 class="text-2xl font-bold text-gray-900 mb-2">Program Pilotażowy</h3>
+						<p class="text-gray-600 mb-4">Testowanie pojedynczej lokalizacji/marki</p>
+						<div class="flex items-baseline justify-center gap-2">
+							<span class="text-sm text-gray-500">Od</span>
+							<span class="text-4xl font-bold text-purple-600">8 000 zł</span>
+							<span class="text-gray-500">/miesiąc</span>
+						</div>
+					</div>
+					<ul class="space-y-3 mb-8">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-gray-700">Audyt widoczności w AI</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-gray-700">Strategia GEO dla 1 lokalizacji</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-gray-700">Podstawowa optymalizacja treści</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-gray-700">Miesięczne raporty</span>
+						</li>
+					</ul>
+					<a href="#contact" class="block w-full px-6 py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-all text-center">
+						Dowiedz się więcej
+					</a>
+				</div>
+
+				<!-- Professional -->
+				<div class="bg-gradient-to-br from-purple-600 to-pink-600 p-8 rounded-2xl shadow-xl text-white transform scale-105 relative">
+					<div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+						<span class="px-4 py-1 bg-yellow-400 text-gray-900 text-sm font-bold rounded-full">
+							NAJPOPULARNIEJSZY
+						</span>
+					</div>
+					<div class="text-center mb-6">
+						<h3 class="text-2xl font-bold mb-2">Profesjonalny</h3>
+						<p class="text-purple-100 mb-4">Optymalizacja wielu lokalizacji</p>
+						<div class="flex items-baseline justify-center gap-2">
+							<span class="text-sm text-purple-200">Od</span>
+							<span class="text-4xl font-bold">15 000 zł</span>
+							<span class="text-purple-200">/miesiąc</span>
+						</div>
+					</div>
+					<ul class="space-y-3 mb-8">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-yellow-300 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Wszystko z pakietu Pilotażowego</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-yellow-300 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Strategia dla 3-10 lokalizacji</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-yellow-300 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Zaawansowana optymalizacja treści</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-yellow-300 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Analiza konkurencyjna</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-yellow-300 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span>Dedykowany opiekun projektu</span>
+						</li>
+					</ul>
+					<a href="#contact" class="block w-full px-6 py-3 bg-white text-purple-600 font-semibold rounded-lg hover:bg-gray-100 transition-all text-center">
+						Zarezerwuj miejsce
+					</a>
+				</div>
+
+				<!-- Enterprise -->
+				<div class="bg-white p-8 rounded-2xl shadow-lg border-2 border-gray-200 hover:border-purple-300 transition-all">
+					<div class="text-center mb-6">
+						<h3 class="text-2xl font-bold text-gray-900 mb-2">Korporacyjny</h3>
+						<p class="text-gray-600 mb-4">Strategie krajowe/wielomarkowe</p>
+						<div class="flex items-baseline justify-center gap-2">
+							<span class="text-sm text-gray-500">Od</span>
+							<span class="text-4xl font-bold text-purple-600">25 000 zł</span>
+							<span class="text-gray-500">/miesiąc</span>
+						</div>
+					</div>
+					<ul class="space-y-3 mb-8">
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-gray-700">Wszystko z pakietu Profesjonalnego</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-gray-700">Strategia dla 10+ lokalizacji</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-gray-700">Strategia wielomarkowa</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-gray-700">Dedykowany zespół</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<svg class="w-5 h-5 text-green-500 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+							</svg>
+							<span class="text-gray-700">Niestandardowe rozwiązania</span>
+						</li>
+					</ul>
+					<a href="#contact" class="block w-full px-6 py-3 bg-gray-100 text-gray-900 font-semibold rounded-lg hover:bg-gray-200 transition-all text-center">
+						Skontaktuj się z nami
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<!-- CTA Section -->
+	<section id="contact" class="py-24 bg-gradient-to-br from-gray-900 via-purple-900 to-gray-900 text-white relative overflow-hidden">
+		<div class="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0id2hpdGUiIHN0cm9rZS1vcGFjaXR5PSIwLjAzIiBzdHJva2Utd2lkdGg9IjEiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjZ3JpZCkiLz48L3N2Zz4=')] opacity-40"></div>
+		
+		<div class="relative max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center mb-12">
+				<h2 class="text-4xl md:text-5xl font-bold mb-6">
+					AI już dziś decyduje, które firmy zobaczą klienci
+				</h2>
+				<p class="text-2xl text-purple-300 mb-8">
+					Nie pozwól żeby była to konkurencja
+				</p>
+				
+				<div class="inline-block bg-gradient-to-r from-purple-600 to-pink-600 p-8 rounded-2xl mb-12">
+					<h3 class="text-3xl font-bold mb-4">Ekskluzywna ocena widoczności w AI</h3>
+					<p class="text-xl mb-4">Wartość <span class="line-through">5 000 zł</span> – <span class="text-yellow-300 font-bold">bezpłatnie</span> dla pierwszych 10 firm</p>
+				</div>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-12 items-start mb-12">
+				<div>
+					<h3 class="text-2xl font-bold mb-6">Co otrzymasz:</h3>
+					<ul class="space-y-4">
+						<li class="flex items-start gap-3">
+							<svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>45-minutowa konsultacja zarządcza z naszym strategiem AI</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>Audyt na żywo: jak AI widzi Twoją firmę w 50+ zapytaniach</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>Analiza konkurencyjna: porównanie z 5 głównymi konkurentami</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>Plan działań: konkretne kroki na pierwsze 30 dni</span>
+						</li>
+						<li class="flex items-start gap-3">
+							<svg class="w-6 h-6 text-green-400 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+								<path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+							</svg>
+							<span>Prognoza ROI: szacowany wpływ biznesowy w 6-miesięcznym horyzoncie</span>
+						</li>
+					</ul>
+
+					<div class="mt-8 p-6 bg-white/10 backdrop-blur-sm rounded-xl border border-white/20">
+						<h4 class="font-bold mb-3 text-yellow-300">Wymagania:</h4>
+						<ul class="space-y-2 text-sm">
+							<li class="flex items-start gap-2">
+								<span class="text-purple-300">•</span>
+								<span>Firma z min. 3 lokalizacjami LUB roczne przychody 2M+ zł</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<span class="text-purple-300">•</span>
+								<span>Decydent dostępny na 45-min rozmowę</span>
+							</li>
+							<li class="flex items-start gap-2">
+								<span class="text-purple-300">•</span>
+								<span>Gotowość do przystąpienia do programu pilotażowego w IV kwartale 2025</span>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+				<div>
+					<div class="bg-white/10 backdrop-blur-lg p-8 rounded-2xl border border-white/20">
+						<h3 class="text-2xl font-bold mb-6 text-center">Zarezerwuj bezpłatną konsultację</h3>
+						<p class="text-center mb-6 text-purple-200">Tylko 10 miejsc dostępnych</p>
+						
+						<form name="geo-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" class="space-y-4">
+							<input type="hidden" name="form-name" value="geo-contact" />
+							<p class="hidden">
+								<label>Don't fill this out if you're human: <input name="bot-field" /></label>
+							</p>
+							
+							<div>
+								<label for="name" class="block text-sm font-medium mb-2">Imię i nazwisko *</label>
+								<input 
+									type="text" 
+									id="name" 
+									name="name" 
+									required 
+									class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:outline-none text-white placeholder-gray-400"
+									placeholder="Jan Kowalski"
+								/>
+							</div>
+
+							<div>
+								<label for="company" class="block text-sm font-medium mb-2">Nazwa firmy *</label>
+								<input 
+									type="text" 
+									id="company" 
+									name="company" 
+									required 
+									class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:outline-none text-white placeholder-gray-400"
+									placeholder="Nazwa Twojej firmy"
+								/>
+							</div>
+
+							<div>
+								<label for="email" class="block text-sm font-medium mb-2">Email *</label>
+								<input 
+									type="email" 
+									id="email" 
+									name="email" 
+									required 
+									class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:outline-none text-white placeholder-gray-400"
+									placeholder="jan@firma.pl"
+								/>
+							</div>
+
+							<div>
+								<label for="phone" class="block text-sm font-medium mb-2">Telefon *</label>
+								<input 
+									type="tel" 
+									id="phone" 
+									name="phone" 
+									required 
+									class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:outline-none text-white placeholder-gray-400"
+									placeholder="+48 123 456 789"
+								/>
+							</div>
+
+							<div>
+								<label for="locations" class="block text-sm font-medium mb-2">Liczba lokalizacji</label>
+								<select 
+									id="locations" 
+									name="locations"
+									class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:outline-none text-white"
+								>
+									<option value="1-2" class="text-gray-900">1-2 lokalizacje</option>
+									<option value="3-5" class="text-gray-900">3-5 lokalizacji</option>
+									<option value="6-10" class="text-gray-900">6-10 lokalizacji</option>
+									<option value="11+" class="text-gray-900">11+ lokalizacji</option>
+								</select>
+							</div>
+
+							<div>
+								<label for="message" class="block text-sm font-medium mb-2">Dodatkowe informacje</label>
+								<textarea 
+									id="message" 
+									name="message" 
+									rows="3"
+									class="w-full px-4 py-3 bg-white/10 border border-white/30 rounded-lg focus:border-purple-400 focus:ring-2 focus:ring-purple-400 focus:outline-none text-white placeholder-gray-400"
+									placeholder="Opowiedz nam o swoim biznesie..."
+								></textarea>
+							</div>
+
+							<button 
+								type="submit"
+								class="w-full px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white font-bold rounded-lg hover:from-purple-700 hover:to-pink-700 transition-all transform hover:scale-105 shadow-lg"
+							>
+								Zarezerwuj swoją darmową konsultację
+							</button>
+
+							<p class="text-xs text-center text-gray-400">
+								Klikając "Zarezerwuj" akceptujesz naszą politykę prywatności
+							</p>
+						</form>
+					</div>
+				</div>
+			</div>
+
+			<div class="text-center">
+				<p class="text-lg text-purple-200 italic">
+					P.S. Za 12 miesięcy każda agencja będzie oferować "usługi GEO". Dziś masz szansę być pionierem w swojej branży. Te 10 miejsc to ostatnia szansa na ekskluzywny wczesny dostęp.
+				</p>
+			</div>
+		</div>
+	</section>
+
+	<!-- Footer -->
+	<footer class="py-12 bg-gray-900 text-gray-400">
+		<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+			<div class="text-center">
+				<p class="text-2xl font-bold text-white mb-4">Vanity Projects</p>
+				<p class="mb-8">Pierwsza agencja GEO w Polsce</p>
+				<div class="flex justify-center gap-6 mb-8">
+					<a href="#problem" class="hover:text-white transition-colors">Problem</a>
+					<a href="#solution" class="hover:text-white transition-colors">Rozwiązanie</a>
+					<a href="#process" class="hover:text-white transition-colors">Proces</a>
+					<a href="#pricing" class="hover:text-white transition-colors">Cennik</a>
+					<a href="#contact" class="hover:text-white transition-colors">Kontakt</a>
+				</div>
+				<p class="text-sm">© 2025 Vanity Projects. Wszystkie prawa zastrzeżone.</p>
+			</div>
+		</div>
+	</footer>
+</LandingLayout>
+
+<style>
+	/* Smooth scroll behavior */
+	html {
+		scroll-behavior: smooth;
+	}
+	
+	/* Custom animations */
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	
+	section {
+		animation: fadeInUp 0.8s ease-out;
+	}
+</style>
