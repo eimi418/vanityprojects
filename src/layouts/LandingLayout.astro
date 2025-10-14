@@ -1,0 +1,42 @@
+---
+import '../../src/styles/globals.css';
+import '@fontsource-variable/inter/wght.css';
+import interWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+
+interface Props {
+    title: string;
+	description?: string;
+}
+
+const { 
+	title,
+	description = "Pierwsza agencja GEO w Polsce. Optymalizacja pod ChatGPT, Claude i Google AI zamiast tradycyjnego Google."
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8" />
+        <title>{title}</title>
+		<meta name="description" content={description} />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="generator" content={Astro.generator} />
+        
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
+    </head>
+    <body class="antialiased">
+		<slot />
+    </body>
+</html>
