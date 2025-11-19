@@ -23,26 +23,227 @@ const {
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="generator" content={Astro.generator} /
 
-
-		<!-- Open Graph / Facebook -->
-		<meta property="og:type" content="website" />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		
-		<!-- Twitter -->
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		
-
-		<!-- Favicon -->
-		<link rel="icon" type="image/x-icon" href="/favicon.ico">
-		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-		
-		<!-- Theme color (purple gradient) -->
-		<meta name="theme-color" content="#7c3aed">
+ <meta name="title" content="VanityProjects - GEO (Generative Engine Optimization) | Optymalizacja dla AI w Polsce">
+  <meta name="description" content="Pierwsza agencja GEO w Polsce. Optymalizujemy Twoją firmę dla ChatGPT, Claude i Google Gemini. Bądź widoczny gdy klienci pytają AI o rekomendacje w Twojej branży.">
+  <meta name="keywords" content="GEO, Generative Engine Optimization, optymalizacja AI, ChatGPT SEO, Claude optimization, AI marketing, marketing AI, Gdynia, Trójmiasto">
+  <meta name="author" content="VanityProjects">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://vanityprojects.pl">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <meta name="theme-color" content="#7c3aed">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://vanityprojects.pl">
+  <meta property="og:title" content="VanityProjects - GEO (Generative Engine Optimization) | Optymalizacja dla AI">
+  <meta property="og:description" content="Pierwsza agencja GEO w Polsce. Optymalizujemy Twoją firmę dla ChatGPT, Claude i Google Gemini. Bądź widoczny gdy klienci pytają AI o rekomendacje.">
+  <meta property="og:image" content="https://vanityprojects.pl/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:locale" content="pl_PL">
+  <meta property="og:site_name" content="VanityProjects">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://vanityprojects.pl">
+  <meta name="twitter:title" content="VanityProjects - GEO | Optymalizacja dla AI">
+  <meta name="twitter:description" content="Pierwsza agencja GEO w Polsce. Optymalizujemy Twoją firmę dla systemów AI: ChatGPT, Claude, Google Gemini.">
+  <meta name="twitter:image" content="https://vanityprojects.pl/og-image.png">
+  
+  <!-- Schema.org JSON-LD - Organization -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "VanityProjects",
+    "legalName": "VanityProjects",
+    "url": "https://vanityprojects.pl",
+    "logo": "https://vanityprojects.pl/android-chrome-512x512.png",
+    "description": "Pierwsza agencja GEO (Generative Engine Optimization) w Polsce, specjalizująca się w optymalizacji treści dla systemów AI jak ChatGPT, Claude i Google Gemini.",
+    "foundingDate": "2024",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kwadratowa 17",
+      "addressLocality": "Gdynia",
+      "postalCode": "81-303",
+      "addressCountry": "PL"
+    },
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "email": "info@vanityprojects.pl",
+      "availableLanguage": ["pl", "en"]
+    },
+    "areaServed": {
+      "@type": "Country",
+      "name": "Poland"
+    },
+    "sameAs": [
+      "https://vanityprojects.pl"
+    ]
+  }
+  </script>
+  
+  <!-- Schema.org JSON-LD - Service -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": "GEO - Generative Engine Optimization",
+    "provider": {
+      "@type": "Organization",
+      "name": "VanityProjects",
+      "url": "https://vanityprojects.pl"
+    },
+    "description": "Optymalizacja treści biznesowych dla systemów AI (ChatGPT, Claude, Google Gemini). Zwiększamy widoczność Twojej firmy gdy potencjalni klienci pytają asystentów AI o rekomendacje.",
+    "areaServed": {
+      "@type": "Country",
+      "name": "Poland"
+    },
+    "audience": {
+      "@type": "BusinessAudience",
+      "audienceType": "Małe i średnie przedsiębiorstwa w Polsce"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Pakiet Starter",
+        "description": "Audyt GEO + optymalizacja 10 kluczowych fraz",
+        "price": "1500",
+        "priceCurrency": "PLN",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "1500",
+          "priceCurrency": "PLN",
+          "billingIncrement": "Month"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Pakiet Professional",
+        "description": "Pełna optymalizacja + monitorowanie 30 fraz + raportowanie",
+        "price": "2500",
+        "priceCurrency": "PLN",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "2500",
+          "priceCurrency": "PLN",
+          "billingIncrement": "Month"
+        }
+      },
+      {
+        "@type": "Offer",
+        "name": "Pakiet Enterprise",
+        "description": "Kompleksowa strategia GEO + integracje API + dedykowany opiekun",
+        "price": "4000",
+        "priceCurrency": "PLN",
+        "priceSpecification": {
+          "@type": "UnitPriceSpecification",
+          "price": "4000",
+          "priceCurrency": "PLN",
+          "billingIncrement": "Month"
+        }
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Schema.org JSON-LD - LocalBusiness -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "VanityProjects",
+    "image": "https://vanityprojects.pl/android-chrome-512x512.png",
+    "description": "Agencja GEO (Generative Engine Optimization) - optymalizacja dla systemów AI",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Kwadratowa 17",
+      "addressLocality": "Gdynia",
+      "postalCode": "81-303",
+      "addressCountry": "PL"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "54.5189",
+      "longitude": "18.5305"
+    },
+    "url": "https://vanityprojects.pl",
+    "telephone": "+48",
+    "email": "info@vanityprojects.pl",
+    "priceRange": "1500 PLN - 4000 PLN",
+    "openingHoursSpecification": [
+      {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "17:00"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Schema.org JSON-LD - BreadcrumbList (dla podstron) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Strona główna",
+        "item": "https://vanityprojects.pl"
+      }
+    ]
+  }
+  </script>
+  
+  <!-- Schema.org JSON-LD - FAQPage (dodaj jak będziesz miał sekcję FAQ) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Czym jest GEO (Generative Engine Optimization)?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "GEO to nowa dziedzina marketingu cyfrowego, która optymalizuje treści dla systemów AI jak ChatGPT, Claude i Google Gemini. W przeciwieństwie do SEO, które skupia się na wyszukiwarkach, GEO pomaga firmom być widocznymi gdy klienci pytają asystentów AI o rekomendacje."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Czym różni się GEO od SEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "SEO optymalizuje pod słowa kluczowe dla wyszukiwarek. GEO optymalizuje pod rozumienie znaczenia (semantic search) dla systemów AI. Zamiast dopasowywać pojedyncze słowa, GEO analizuje frazy i kontekst, co pozwala być znalezionym nawet gdy klient używa innych słów niż w Twoim opisie."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Ile kosztuje optymalizacja GEO?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Oferujemy trzy pakiety: Starter (1500 zł/mies) - audyt + 10 fraz, Professional (2500 zł/mies) - pełna optymalizacja + 30 fraz + monitoring, Enterprise (4000 zł/mies) - kompleksowa strategia + integracje API. Ceny są miesięczne i zawierają bieżącą optymalizację."
+        }
+      }
+    ]
+  }
+  </script>
 
 
         <link rel="preload" as="font" type="font/woff2" href={interWoff2} crossorigin />
