@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GEO Demo - Keyword vs Semantic Search</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .gradient-border {
+            position: relative;
+            background: white;
+        }
+        
+        .gradient-border::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            border-radius: 0.75rem;
+            padding: 2px;
+            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+            -webkit-mask-composite: xor;
+            mask-composite: exclude;
+            pointer-events: none;
+        }
+        
+        .keyword-highlight {
+            background: rgba(234, 179, 8, 0.3);
+            padding: 2px 4px;
+            border-radius: 3px;
+            font-weight: 600;
+        }
+        
+        .match-strong {
+            background: rgba(124, 58, 237, 0.15);
+            font-weight: 600;
+        }
+        
+        .vector-grid {
+            background-image: 
+                linear-gradient(0deg, transparent 24%, rgba(124, 58, 237, .05) 25%, rgba(124, 58, 237, .05) 26%, transparent 27%),
+                linear-gradient(90deg, transparent 24%, rgba(124, 58, 237, .05) 25%, rgba(124, 58, 237, .05) 26%, transparent 27%);
+            background-size: 30px 30px;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 15px rgba(124, 58, 237, 0.3); }
+            50% { box-shadow: 0 0 25px rgba(124, 58, 237, 0.6); }
+        }
+        
+        .animate-pulse-glow {
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes fade-in {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fade-in 0.3s ease-out;
+        }
+        
+        .transition-all {
+            transition: all 0.3s ease;
+        }
+        
+        .chunk-label {
+            position: relative;
+        }
+        
+        .chunk-label::before {
+            content: '';
+            position: absolute;
+            left: -8px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 3px;
+            height: 100%;
+            background: linear-gradient(135deg, #7c3aed 0%, #ec4899 100%);
+            border-radius: 999px;
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-purple-50">
+    <div class="min-h-screen py-12 px-4">
+        <div class="max-w-6xl mx-auto">
+            <!-- Header -->
+            <div class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold mb-4">
+                    Keyword vs <span class="gradient-text">Semantic Search</span>
+                </h1>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Zobacz jak <strong>rozumienie znaczenia</strong> i <strong>podział na frazy</strong> zmieniają wyniki wyszukiwania
+                </p>
+            </div>
+
+            <!-- Controls -->
+            <div class="bg-white rounded-2xl shadow-xl p-8 mb-8">
+                <div class="grid md:grid-cols-2 gap-8">
+                    <!-- Mode Toggle -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">
+                            Tryb wyszukiwania:
+                        </label>
+                        <div class="flex gap-4">
+                            <button
+                                id="btn-keyword"
+                                onclick="setSearchMode('keyword')"
+                                class="flex-1 py-4 px-6 rounded-xl font-bold transition-all bg-gray-100 text-gray-600 hover:bg-gray-200 hover:scale-105"
+                            >
+                                <div class="text-2xl mb-1">🔤</div>
+                                <div>Keyword (SEO)</div>
+                            </button>
+                            <button
+                                id="btn-semantic"
+                                onclick="setSearchMode('semantic')"
+                                class="flex-1 py-4 px-6 rounded-xl font-bold transition-all bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg hover:scale-105 animate-pulse-glow"
+                            >
+                                <div class="text-2xl mb-1">🧠</div>
+                                <div>Semantic (GEO)</div>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Query Selection -->
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-4 uppercase tracking-wide">
+                            Wybierz zapytanie:
+                        </label>
+                        <select
+                            id="query-select"
+                            onchange="setQuery(this.value)"
+                            class="w-full py-4 px-6 rounded-xl border-2 border-gray-200 focus:border-purple-500 focus:outline-none font-semibold text-lg transition-all hover:border-gray-300"
+                        >
+                            <option value="najlepszy fryzjer męski">🧔 Zapytanie: Fryzjer męski</option>
+                            <option value="gdzie kupić auto hybrydowe">🚗 Zapytanie: Auto hybrydowe</option>
+                            <option value="naprawa klimatyzacji samochód">🔧 Zapytanie: Klimatyzacja</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Chunk Toggle - ONLY for Semantic -->
+                <div id="chunk-toggle-container" class="mt-8 pt-8 border-t border-gray-200" style="display: none;">
+                    <div class="bg-purple-50 rounded-xl p-6 border-2 border-purple-200">
+                        <label class="flex items-start cursor-pointer group">
+                            <input
+                                type="checkbox"
+                                id="show-chunks"
+                                checked
+                                onchange="toggleChunks(this.checked)"
+                                class="w-6 h-6 mt-1 text-purple-600 rounded focus:ring-purple-500 cursor-pointer"
+                            />
+                            <div class="ml-4 flex-1">
+                                <span class="font-bold text-gray-900 text-lg block mb-2 group-hover:text-purple-600 transition-colors">
+                                    Pokaż podział na frazy (chunki)
+                                </span>
+                                <p class="text-sm text-gray-600 leading-relaxed">
+                                    <strong>Frazy (chunki)</strong> to kluczowa koncepcja w GEO. Każda fraza dostaje swój własny embedding (wektor znaczenia).
+                                    Przełącz, żeby zobaczyć jak <strong>granularność embeddingów</strong> wpływa na precyzję wyników.
+                                </p>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Explanation Banner -->
+            <div id="explanation-banner" class="rounded-2xl p-8 mb-8 fade-in bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-300 shadow-lg">
+                <div class="flex items-start gap-6">
+                    <div class="text-5xl flex-shrink-0" id="banner-icon">🧠</div>
+                    <div class="flex-1">
+                        <h3 class="font-bold text-2xl mb-3 text-gray-900" id="banner-title">Semantic Search (GEO)</h3>
+                        <p class="text-gray-700 text-lg leading-relaxed" id="banner-text">
+                            Rozumie <strong>ZNACZENIE</strong> fraz. Wie że "strzyżenie męskie" = "fryzjer męski". 
+                            Analizuje całe frazy (chunki), nie pojedyncze słowa, dzięki czemu rozumie kontekst.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Vector Space Visualization - ONLY for Semantic mode -->
+            <div id="vector-viz" class="mb-8 bg-slate-900 rounded-2xl p-8 overflow-hidden relative" style="display: none;">
+                <div class="absolute inset-0 vector-grid opacity-30"></div>
+                <div class="relative">
+                    <h3 class="text-white font-bold text-xl mb-4 flex items-center gap-3">
+                        <span class="text-2xl">🎯</span>
+                        Przestrzeń wektorowa - embeddingi semantyczne
+                    </h3>
+                    <div class="bg-slate-800/50 rounded-xl p-6 border border-purple-500/30">
+                        <div class="flex items-center justify-between gap-8 flex-wrap">
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-purple-500 animate-pulse-glow flex items-center justify-center text-white font-bold">
+                                    Q
+                                </div>
+                                <div>
+                                    <div class="text-white font-bold mb-1">Zapytanie (Query)</div>
+                                    <div class="text-purple-300 text-sm" id="query-display">najlepszy fryzjer męski</div>
+                                </div>
+                            </div>
+                            <div class="text-purple-400 text-3xl">→</div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-gradient-to-r from-purple-600 to-pink-500 flex items-center justify-center">
+                                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                                    </svg>
+                                </div>
+                                <div>
+                                    <div class="text-white font-bold mb-1">Embedding (768 wymiarów)</div>
+                                    <div class="text-purple-300 text-sm font-mono">[0.42, -0.15, 0.89, 0.23, ...]</div>
+                                </div>
+                            </div>
+                            <div class="text-purple-400 text-3xl">→</div>
+                            <div class="flex items-center gap-4">
+                                <div class="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center text-white font-bold text-xl">
+                                    %
+                                </div>
+                                <div>
+                                    <div class="text-white font-bold mb-1">Cosine Similarity</div>
+                                    <div class="text-green-300 text-sm">Porównanie z każdym chunkiem</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Container -->
+            <div class="space-y-6">
+                <div class="flex items-center justify-between">
+                    <h2 class="text-3xl font-bold text-gray-900 flex items-center gap-3">
+                        <span>🎯</span>
+                        Wyniki wyszukiwania
+                    </h2>
+                    <div class="text-sm font-bold text-gray-500 bg-white px-4 py-2 rounded-full shadow" id="results-count">
+                        Znaleziono: 0 firm
+                    </div>
+                </div>
+
+                <div id="results-container" class="fade-in">
+                    <!-- Results will be rendered here -->
+                </div>
+            </div>
+
+            <!-- Key Insight -->
+            <div class="mt-16 bg-gradient-to-r from-purple-600 to-pink-500 rounded-2xl p-10 text-white shadow-2xl">
+                <h3 class="text-3xl font-bold mb-6 flex items-center gap-4">
+                    <span class="text-4xl">💡</span>
+                    Kluczowa różnica
+                </h3>
+                <div class="grid md:grid-cols-2 gap-8 text-lg">
+                    <div class="bg-white/10 rounded-xl p-6 backdrop-blur">
+                        <div class="font-bold mb-3 text-xl">🔤 SEO (Keyword)</div>
+                        <p class="leading-relaxed">
+                            Wymaga <strong>dokładnych słów</strong>. "Fryzjer" ≠ "Barber" ≠ "Strzyżenie". 
+                            Bez słowa kluczowego = brak wyniku.
+                        </p>
+                    </div>
+                    <div class="bg-white/10 rounded-xl p-6 backdrop-blur">
+                        <div class="font-bold mb-3 text-xl">🧠 GEO (Semantic)</div>
+                        <p class="leading-relaxed">
+                            Rozumie że to <strong>to samo znaczy</strong>. Analizuje <strong>frazy</strong> (chunki), 
+                            nie słowa. Embeddingi łapią kontekst.
+                        </p>
+                    </div>
+                </div>
+                <div class="mt-8 pt-8 border-t border-white/30">
+                    <p class="text-xl">
+                        🚀 <strong>Dzięki GEO:</strong> Twoja firma pojawia się nawet gdy klient pyta <strong>inaczej</strong> niż napisałeś w opisie!
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // State
+        let state = {
+            searchMode: 'semantic',
+            selectedQuery: 'najlepszy fryzjer męski',
+            showChunks: true
+        };
+
+        // Business data - pokazujemy różnicę: keyword słabo (30-50%), semantic świetnie (90-95%)
+        const businesses = [
+            {
+                id: 1,
+                name: 'Barber Shop "Męski Styl"',
+                location: 'Gdynia, ul. Świętojańska 42',
+                chunks: [
+                    { 
+                        text: 'Profesjonalny barber shop dla panów - strzyżenia męskie, golenie, stylizacja brody.',
+                        keywords: ['barber', 'panów', 'strzyżenia', 'męskie', 'golenie', 'brody'],
+                        semanticScore: { 'najlepszy fryzjer męski': 0.95 }
+                    },
+                    { 
+                        text: 'Oferujemy klasyczne cięcia włosów i nowoczesne undercut dla mężczyzn.',
+                        keywords: ['cięcia', 'włosów', 'undercut', 'mężczyzn'],
+                        semanticScore: { 'najlepszy fryzjer męski': 0.92 }
+                    },
+                    { 
+                        text: 'Doświadczony stylista z 15-letnim stażem w branży beauty dla panów.',
+                        keywords: ['stylista', 'stażem', 'beauty', 'panów'],
+                        semanticScore: { 'najlepszy fryzjer męski': 0.88 }
+                    },
+                    { 
+                        text: 'Obsługa w centrum Gdyni, parking dostępny.',
+                        keywords: ['Gdyni', 'parking'],
+                        semanticScore: { 'najlepszy fryzjer męski': 0.35 }
+                    }
+                ]
+            },
+            {
+                id: 2,
+                name: 'Salon Samochodowy "EcoDrive"',
+                location: 'Gdańsk, al. Grunwaldzka 123',
+                chunks: [
+                    { 
+                        text: 'Sprzedaż aut z napędem elektrycznym i hybrydowym - ekologiczne pojazdy przyszłości.',
+                        keywords: ['sprzedaż', 'aut', 'elektrycznym', 'hybrydowym', 'pojazdy'],
+                        semanticScore: { 
+                            'gdzie kupić auto hybrydowe': 0.96,
+                            'najlepszy fryzjer męski': 0.15
+                        }
+                    },
+                    { 
+                        text: 'W ofercie samochody eco-friendly: Toyota Prius, Honda Accord Hybrid, Lexus RX.',
+                        keywords: ['samochody', 'eco-friendly', 'Toyota', 'Prius', 'Honda', 'Accord', 'Hybrid', 'Lexus'],
+                        semanticScore: { 
+                            'gdzie kupić auto hybrydowe': 0.93,
+                            'najlepszy fryzjer męski': 0.10
+                        }
+                    },
+                    { 
+                        text: 'Kupując u nas auto dostajesz kompleksową obsługę i gwarancję producenta.',
+                        keywords: ['kupując', 'auto', 'obsługę', 'gwarancję'],
+                        semanticScore: { 
+                            'gdzie kupić auto hybrydowe': 0.65,
+                            'naprawa klimatyzacji samochód': 0.72
+                        }
+                    },
+                    { 
+                        text: 'Kredyt, leasing, ubezpieczenie - wszystko załatwimy w jednym miejscu.',
+                        keywords: ['kredyt', 'leasing', 'ubezpieczenie'],
+                        semanticScore: { 
+                            'gdzie kupić auto hybrydowe': 0.58
+                        }
+                    }
+                ]
+            },
+            {
+                id: 3,
+                name: 'Serwis Motoryzacyjny "Chłód-Komfort"',
+                location: 'Sopot, ul. Armii Krajowej 55',
+                chunks: [
+                    { 
+                        text: 'Specjalistyczny serwis klimatyzacji samochodowej - naprawa AC, wentylacja, chłodzenie.',
+                        keywords: ['serwis', 'klimatyzacji', 'samochodowej', 'naprawa', 'AC', 'wentylacja', 'chłodzenie'],
+                        semanticScore: { 
+                            'naprawa klimatyzacji samochód': 0.97,
+                            'gdzie kupić auto hybrydowe': 0.25
+                        }
+                    },
+                    { 
+                        text: 'Napełnianie czynnikiem, czyszczenie filtrów, wymiana sprężarek i osuszaczy.',
+                        keywords: ['napełnianie', 'czynnikiem', 'filtrów', 'sprężarek', 'osuszaczy'],
+                        semanticScore: { 
+                            'naprawa klimatyzacji samochód': 0.91
+                        }
+                    },
+                    { 
+                        text: 'Obsługujemy wszystkie marki i modele samochodów osobowych i dostawczych.',
+                        keywords: ['marki', 'modele', 'samochodów', 'osobowych', 'dostawczych'],
+                        semanticScore: { 
+                            'naprawa klimatyzacji samochód': 0.68,
+                            'gdzie kupić auto hybrydowe': 0.45
+                        }
+                    },
+                    { 
+                        text: 'Ekspresowa naprawa układu klimatyzacji - diagnostyka i serwis w 24h.',
+                        keywords: ['naprawa', 'klimatyzacji', 'diagnostyka', 'serwis'],
+                        semanticScore: { 
+                            'naprawa klimatyzacji samochód': 0.74
+                        }
+                    }
+                ]
+            }
+        ];
+
+        // Functions
+        function setSearchMode(mode) {
+            state.searchMode = mode;
+            updateUI();
+        }
+
+        function setQuery(query) {
+            state.selectedQuery = query;
+            document.getElementById('query-display').textContent = query;
+            updateUI();
+        }
+
+        function toggleChunks(show) {
+            state.showChunks = show;
+            updateUI();
+        }
+
+        function highlightKeywords(text, query) {
+            let result = text;
+            const searchWords = query.toLowerCase().split(' ');
+            
+            searchWords.forEach(word => {
+                const regex = new RegExp(`(${word})`, 'gi');
+                result = result.replace(regex, '<mark class="keyword-highlight">$1</mark>');
+            });
+            
+            return result;
+        }
+
+        function getMatchScore(chunk, query, mode) {
+            if (mode === 'keyword') {
+                const searchWords = query.toLowerCase().split(' ');
+                const chunkText = chunk.text.toLowerCase();
+                const matches = searchWords.filter(word => chunkText.includes(word));
+                return matches.length / searchWords.length;
+            } else {
+                return chunk.semanticScore[query] || 0;
+            }
+        }
+
+        function getRelevantBusinesses() {
+            return businesses.map(business => {
+                const relevantChunks = business.chunks.map(chunk => ({
+                    ...chunk,
+                    score: getMatchScore(chunk, state.selectedQuery, state.searchMode)
+                })).filter(chunk => chunk.score > (state.searchMode === 'keyword' ? 0 : 0.6));
+
+                const avgScore = relevantChunks.length > 0 
+                    ? relevantChunks.reduce((sum, chunk) => sum + chunk.score, 0) / relevantChunks.length 
+                    : 0;
+
+                return {
+                    ...business,
+                    relevantChunks,
+                    avgScore
+                };
+            }).filter(b => b.avgScore > 0).sort((a, b) => b.avgScore - a.avgScore);
+        }
+
+        function renderResults() {
+            const relevantBusinesses = getRelevantBusinesses();
+            const container = document.getElementById('results-container');
+            
+            document.getElementById('results-count').textContent = `Znaleziono: ${relevantBusinesses.length} firm`;
+
+            if (relevantBusinesses.length === 0) {
+                container.innerHTML = `
+                    <div class="bg-white rounded-2xl shadow-xl p-12 text-center">
+                        <div class="text-7xl mb-4">😕</div>
+                        <h3 class="text-2xl font-bold text-gray-900 mb-3">
+                            Brak wyników
+                        </h3>
+                        <p class="text-gray-600 text-lg">
+                            ${state.searchMode === 'keyword' 
+                                ? 'Żadna firma nie zawiera dokładnych słów z zapytania. To pokazuje ograniczenia keyword search!'
+                                : 'Żadna firma nie pasuje semantycznie do zapytania.'
+                            }
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            container.innerHTML = relevantBusinesses.map((business, idx) => `
+                <div class="gradient-border rounded-2xl p-8 hover:shadow-2xl transition-all">
+                    <div class="flex items-start justify-between mb-6 flex-wrap gap-4">
+                        <div class="flex-1 min-w-[250px]">
+                            <div class="flex items-center gap-4 mb-3">
+                                <span class="text-3xl font-black text-gray-300">#${idx + 1}</span>
+                                <h3 class="text-2xl font-bold text-gray-900">
+                                    ${business.name}
+                                </h3>
+                            </div>
+                            <p class="text-gray-600 flex items-center gap-2 text-lg">
+                                <span>📍</span>
+                                ${business.location}
+                            </p>
+                        </div>
+                        <div class="text-right bg-gray-50 rounded-xl p-4 min-w-[120px]">
+                            <div class="text-xs font-bold text-gray-500 mb-2 uppercase tracking-wider">
+                                Dopasowanie
+                            </div>
+                            <div class="text-4xl font-black ${
+                                state.searchMode === 'keyword' ? 'text-yellow-600' : 'text-purple-600'
+                            }">
+                                ${Math.round(business.avgScore * 100)}%
+                            </div>
+                        </div>
+                    </div>
+
+                    ${state.searchMode === 'semantic' && state.showChunks ? `
+                        <!-- Chunked View (Semantic with chunks) -->
+                        <div class="space-y-4 mt-6">
+                            <div class="text-sm font-bold text-gray-500 uppercase tracking-wide mb-4 flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                                </svg>
+                                Podział na frazy (każda = osobny embedding)
+                            </div>
+                            ${business.relevantChunks.map((chunk, cidx) => `
+                                <div class="p-5 rounded-xl border-2 transition-all ${
+                                    chunk.score > 0.8 
+                                        ? 'bg-purple-50 border-purple-300 shadow-md'
+                                        : 'bg-gray-50 border-gray-200'
+                                }">
+                                    <div class="flex items-start justify-between gap-4">
+                                        <div class="flex-shrink-0 chunk-label">
+                                            <div class="text-xs font-black text-purple-400 uppercase tracking-wider">
+                                                Chunk #${cidx + 1}
+                                            </div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <p class="text-gray-800 leading-relaxed text-base ${chunk.score > 0.8 ? 'match-strong' : ''}">
+                                                ${chunk.text}
+                                            </p>
+                                        </div>
+                                        <div class="flex-shrink-0 text-right">
+                                            <div class="text-lg font-black text-purple-600">
+                                                ${Math.round(chunk.score * 100)}%
+                                            </div>
+                                            <div class="text-xs text-gray-500 mt-1">
+                                                ${chunk.score > 0.9 ? '🔥 Super match' : chunk.score > 0.8 ? '✨ Wysoki' : '✓ OK'}
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    ` : `
+                        <!-- Full Text View (Keyword OR Semantic without chunks) -->
+                        <div class="mt-6 p-6 rounded-xl border-2 ${
+                            state.searchMode === 'keyword' 
+                                ? 'bg-yellow-50 border-yellow-300'
+                                : 'bg-gray-50 border-gray-300'
+                        }">
+                            <div class="flex items-start justify-between gap-4">
+                                <div class="flex-1">
+                                    <div class="text-xs font-bold text-gray-500 mb-4 uppercase tracking-wide flex items-center gap-2">
+                                        ${state.searchMode === 'keyword' 
+                                            ? '<span>🔤</span> Keyword matching na całym tekście'
+                                            : '<span>📄</span> Pełny opis (jeden duży embedding)'
+                                        }
+                                    </div>
+                                    <p class="text-gray-800 leading-relaxed text-base">
+                                        ${state.searchMode === 'keyword'
+                                            ? business.relevantChunks.map(chunk => highlightKeywords(chunk.text, state.selectedQuery)).join(' ')
+                                            : business.relevantChunks.map(chunk => chunk.text).join(' ')
+                                        }
+                                    </p>
+                                    ${state.searchMode === 'semantic' && !state.showChunks && business.relevantChunks.length > 1 ? `
+                                        <div class="mt-4 p-4 bg-orange-100 rounded-lg border border-orange-300">
+                                            <div class="text-sm text-orange-800 font-medium">
+                                                ⚠️ <strong>Problem rozmycia:</strong> Cały tekst = jeden duży embedding. 
+                                                Fragmenty o niskiej relevancji (${Math.round(Math.min(...business.relevantChunks.map(c => c.score)) * 100)}%) 
+                                                rozmywają wysoko relevantne frazy (${Math.round(Math.max(...business.relevantChunks.map(c => c.score)) * 100)}%). 
+                                                Score został uśredniony do ${Math.round(business.avgScore * 100)}%.
+                                            </div>
+                                        </div>
+                                    ` : ''}
+                                </div>
+                            </div>
+                        </div>
+                    `}
+                </div>
+            `).join('');
+        }
+
+        function updateUI() {
+            // Update buttons
+            const btnKeyword = document.getElementById('btn-keyword');
+            const btnSemantic = document.getElementById('btn-semantic');
+            
+            if (state.searchMode === 'keyword') {
+                btnKeyword.className = 'flex-1 py-4 px-6 rounded-xl font-bold transition-all bg-gradient-to-r from-yellow-500 to-orange-500 text-white shadow-lg hover:scale-105';
+                btnSemantic.className = 'flex-1 py-4 px-6 rounded-xl font-bold transition-all bg-gray-100 text-gray-600 hover:bg-gray-200 hover:scale-105';
+            } else {
+                btnKeyword.className = 'flex-1 py-4 px-6 rounded-xl font-bold transition-all bg-gray-100 text-gray-600 hover:bg-gray-200 hover:scale-105';
+                btnSemantic.className = 'flex-1 py-4 px-6 rounded-xl font-bold transition-all bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-lg hover:scale-105 animate-pulse-glow';
+            }
+
+            // Show/Hide chunk toggle - ONLY for semantic
+            const chunkToggleContainer = document.getElementById('chunk-toggle-container');
+            chunkToggleContainer.style.display = state.searchMode === 'semantic' ? 'block' : 'none';
+
+            // Show/Hide vector visualization - ONLY for semantic
+            const vectorViz = document.getElementById('vector-viz');
+            vectorViz.style.display = state.searchMode === 'semantic' ? 'block' : 'none';
+
+            // Update banner
+            const banner = document.getElementById('explanation-banner');
+            const bannerIcon = document.getElementById('banner-icon');
+            const bannerTitle = document.getElementById('banner-title');
+            const bannerText = document.getElementById('banner-text');
+            
+            if (state.searchMode === 'keyword') {
+                banner.className = 'rounded-2xl p-8 mb-8 fade-in bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-300 shadow-lg';
+                bannerIcon.textContent = '🔤';
+                bannerTitle.textContent = 'Keyword Search (SEO)';
+                bannerText.innerHTML = 'Szuka <strong>DOKŁADNYCH</strong> dopasowań słów. Jeśli tekst nie zawiera słowa "fryzjer", nie zostanie znaleziony - nawet jeśli mówi o strzyżeniu włosów lub barberze. Nie ma chunków - cały dokument jako całość.';
+            } else {
+                banner.className = 'rounded-2xl p-8 mb-8 fade-in bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-300 shadow-lg';
+                bannerIcon.textContent = '🧠';
+                bannerTitle.textContent = 'Semantic Search (GEO)';
+                bannerText.innerHTML = 'Rozumie <strong>ZNACZENIE</strong> fraz. Wie że "strzyżenie męskie" = "fryzjer męski". Analizuje całe frazy (chunki), nie pojedyncze słowa, dzięki czemu rozumie kontekst.';
+            }
+
+            // Render results
+            renderResults();
+        }
+
+        // Initialize
+        updateUI();
+    </script>
+</body>
+</html>
