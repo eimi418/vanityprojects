@@ -1,6 +1,6 @@
 ---
-// Frontmatter (opcjonalny dla standalone)
-const title = "GEO Demo";
+// GEO Demo - Keyword vs Semantic Search
+const title = "GEO Demo - Keyword vs Semantic Search";
 ---
 
 <!DOCTYPE html>
@@ -8,8 +8,8 @@ const title = "GEO Demo";
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GEO Demo - Keyword vs Semantic Search</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <title>{title}</title>
+    
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
         
@@ -190,7 +190,7 @@ const title = "GEO Demo";
                     <div class="flex-1">
                         <h3 class="font-bold text-2xl mb-3 text-gray-900" id="banner-title">Semantic Search (GEO)</h3>
                         <p class="text-gray-700 text-lg leading-relaxed" id="banner-text">
-                            Rozumie <strong>ZNACZENIE</strong> fraz. Wie że "strzyżenie męskie" = "fryzjer męski". 
+                            Rozumie <strong>ZNACZENIE</strong> fraz. Wie że "strzyżenia męskie" = "fryzjer męski". 
                             Analizuje całe frazy (chunki), nie pojedyncze słowa, dzięki czemu rozumie kontekst.
                         </p>
                     </div>
@@ -271,7 +271,7 @@ const title = "GEO Demo";
                         <div class="font-bold mb-3 text-xl">🔤 SEO (Keyword)</div>
                         <p class="leading-relaxed">
                             Wymaga <strong>dokładnych słów</strong>. "Fryzjer" ≠ "Barber" ≠ "Strzyżenie". 
-                            Bez słowa kluczowego = brak wyniku.
+                            Bez słowa kluczowego = słaby wynik.
                         </p>
                     </div>
                     <div class="bg-white/10 rounded-xl p-6 backdrop-blur">
@@ -299,7 +299,7 @@ const title = "GEO Demo";
             showChunks: true
         };
 
-        // Business data - pokazujemy różnicę: keyword słabo (30-50%), semantic świetnie (90-95%)
+        // Business data
         const businesses = [
             {
                 id: 1,
@@ -623,12 +623,12 @@ const title = "GEO Demo";
                 banner.className = 'rounded-2xl p-8 mb-8 fade-in bg-gradient-to-r from-yellow-50 to-orange-50 border-2 border-yellow-300 shadow-lg';
                 bannerIcon.textContent = '🔤';
                 bannerTitle.textContent = 'Keyword Search (SEO)';
-                bannerText.innerHTML = 'Szuka <strong>DOKŁADNYCH</strong> dopasowań słów. Jeśli tekst nie zawiera słowa "fryzjer", nie zostanie znaleziony - nawet jeśli mówi o strzyżeniu włosów lub barberze. Nie ma chunków - cały dokument jako całość.';
+                bannerText.innerHTML = 'Szuka <strong>DOKŁADNYCH</strong> dopasowań słów. Jeśli tekst nie zawiera dokładnie tych samych słów co zapytanie, wynik będzie słaby. Nie ma chunków - cały dokument jako całość.';
             } else {
                 banner.className = 'rounded-2xl p-8 mb-8 fade-in bg-gradient-to-r from-purple-50 to-pink-50 border-2 border-purple-300 shadow-lg';
                 bannerIcon.textContent = '🧠';
                 bannerTitle.textContent = 'Semantic Search (GEO)';
-                bannerText.innerHTML = 'Rozumie <strong>ZNACZENIE</strong> fraz. Wie że "strzyżenie męskie" = "fryzjer męski". Analizuje całe frazy (chunki), nie pojedyncze słowa, dzięki czemu rozumie kontekst.';
+                bannerText.innerHTML = 'Rozumie <strong>ZNACZENIE</strong> fraz. Wie że "strzyżenia męskie" = "fryzjer męski". Analizuje całe frazy (chunki), nie pojedyncze słowa, dzięki czemu rozumie kontekst.';
             }
 
             // Render results
